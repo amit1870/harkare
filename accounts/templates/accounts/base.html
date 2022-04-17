@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ meta_description }}">
+    <meta name="keywords" content="{{ meta_keywords }}">
+
+    <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.css' %}"/>
+
+    <script type="text/javascript" src="{% static 'accounts/js/bootstrap.js' %}"></script>
+
+    {% block title %} {% endblock %}
+    {% block css %} {% endblock %}
+    {% block js %} {% endblock %}
+
+  </head>
+
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="{% url 'accounts:siyaram' %}">
+          <img src="{% static 'accounts/img/ramjee.jpg' %}" alt="ramjee" width="30" height="24" style="border-radius: 50%;">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Harkare</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+ 
+          </ul>
+
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </nav>
+
+  {% block site_wrapper %} {% endblock %}
+  </body>
+
+</html>
+

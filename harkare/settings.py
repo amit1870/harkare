@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ramjee.apps.RamjeeConfig'
+    'django_migration_linter',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'harkare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(Path(__file__).parent).joinpath('.templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,6 +104,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# GOOGLE EMAIL API Configuration
+
+GOOGLE_API = {
+    'name': 'gmail',
+    'token_path': BASE_DIR.as_posix() + '/token.json',
+    'pickle_path': BASE_DIR.as_posix() + '/token.pickle',
+    'version': 'v1',
+    'scope': ['https://mail.google.com/', 'https://www.googleapis.com/auth/gmail.send']
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -111,7 +122,7 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Kolkata'
 
-USE_I18N = True
+USE_I18N = False
 
 USE_L10N = True
 
@@ -127,3 +138,12 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Auth User Model
+AUTH_USER_MODEL = 'accounts.Manushya'
+
+# LOGIN URL
+LOGIN_URL = '/account/login/'
+
+# HEX CODE LENGTH
+HEX_CODE_LENGTH = 30
