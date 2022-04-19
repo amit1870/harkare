@@ -1,0 +1,33 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title > Harkare | Harkare </title>
+{% endblock %}
+
+{% block css %}{% endblock %}
+{% block js %} {% endblock %}
+
+{% block site_wrapper %}
+
+<div class="container" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% if message %}
+                <div class="alert alert-warning" role="alert">
+                  {{ message }}
+                </div>
+            {% endif %}
+            <form action="{% url 'accounts:login' %}" method="post">
+                {% csrf_token %}
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="sudoxvf@gmail.com">
+                <input type="password" class="form-control" name="inputPassword1" id="inputPassword1" placeholder="Password" value="siyaram">
+                <input type="submit" class="btn btn-success col-md-12" value="Siyaram">
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+{% endblock %}

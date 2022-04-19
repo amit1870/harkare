@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'utils.context_processors.harkare_context',
             ],
         },
     },
@@ -143,7 +144,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.Manushya'
 
 # LOGIN URL
-LOGIN_URL = '/account/login/'
+LOGIN_URL = '/login/'
 
 # HEX CODE LENGTH
 HEX_CODE_LENGTH = 30

@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_http_methods
-from django.contrib.auth import login, authenticate, get_user_model
+from django.contrib.auth import login, authenticate, get_user_model, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Manushya, HexString
@@ -28,7 +28,9 @@ def register(request):
         manushya = get_user_model().objects.filter(email=email).first()
 
         if not manushya:
-            manushya = Manushya.objects.create(email=email, user_name=user_name, pitaji=pitaji, mataji=mataji, gaon=gaon, viradari=viradari, password=password)
+            manushya = Manushya.objects.create(email=email, user_name=user_name, pitaji=pitaji, mataji=mataji, gaon=gaon, viradari=viradari)
+            manushya.set_password(password)
+            manushya.save()
             hex_string = HexString.objects.create(code=helper.generate_hex_string(), manushya=manushya)
             hex_code = hex_string.code
 
@@ -91,9 +93,39 @@ def activate(request, hex_code):
     if 'message' in context:
         return render(request, 'accounts/failure.html', context)
 
-    return render(request, 'accounts/siyaram.html', context)
+    url = reverse('accounts:siyaram')
+    return HttpResponseRedirect(url)
 
 @login_required
 def siyaram(request):
     context = {}
+    context['user'] = request.user
     return render(request, 'accounts/siyaram.html', context)
+
+@csrf_protect
+@require_http_methods(["GET", "POST"])
+def account_login(request):
+    context = {}
+    if request.method == 'GET':
+        return render(request, 'accounts/login.html', context)
+
+    postdata = request.POST.copy()
+    email = postdata.get('email','')
+    password = postdata.get('inputPassword1','')
+    user = authenticate(request, username=email, password=password)
+
+    if user is not None:
+        login(request, user)
+        url = reverse('accounts:siyaram')
+        return HttpResponseRedirect(url)
+
+    context['message'] = 'Credential not valid.'
+    return render(request, 'accounts/login.html', context)
+
+@login_required
+def account_logout(request):
+    logout(request)
+
+    context = {}
+    if request.method == 'GET':
+        return render(request, 'accounts/login.html', context)
