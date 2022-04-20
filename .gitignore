@@ -7,8 +7,6 @@ __pycache__/
 ramjee/migrations/
 
 # static
-static
-staticfiles
 
 # Images
 
@@ -110,12 +108,8 @@ ipython_config.py
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
 
-# SageMath parsed files
-*.sage.py
+
 
 # Environments
 .env
@@ -126,31 +120,7 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
-.spyderproject
-.spyproject
 
-# Rope project settings
-.ropeproject
 
-# mkdocs documentation
-/site
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
 
-# Pyre type checker
-.pyre/
-
-# Add files that I don't want on GitHub.
-.vscode/
-ibw/server_session.json
-.pypirc
-MANIFEST.in
-clientportal/
-clientportal.gw/
-clientportal.beta.gw/
-alex/
-config/
