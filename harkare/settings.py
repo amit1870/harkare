@@ -78,11 +78,12 @@ WSGI_APPLICATION = 'harkare.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'db_siyaram',
         'USER': 'dbu_amit',
         'PASSWORD': '4BgMa$Ve939',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': 5432
     }
 }
 
