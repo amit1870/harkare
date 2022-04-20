@@ -11,8 +11,6 @@ static
 staticfiles
 
 # Images
-*.jpg
-*.png
 
 # Pickle file
 token.pickle
