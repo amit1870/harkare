@@ -6,6 +6,10 @@ __pycache__/
 # Migrations
 ramjee/migrations/
 
+# static
+static
+staticfiles
+
 # Images
 *.jpg
 *.png

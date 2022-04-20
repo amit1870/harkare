@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 import django_heroku
-django_heroku.settings(locals())
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-p-ht^kcd5@m(3l*f8s1x&9v-nr#2%(ecxe3jm%p8f(%dup@9q9'
+SECRET_KEY = 'django-insecure-p-ht^kcd5@m(3l*f8s1x&9v-nr#2%(ecxe3jm%p8f(%dup@9q9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'harkare.urls'
+
+django_heroku.settings(locals())
 
 TEMPLATES = [
     {
@@ -138,6 +140,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR.as_posix() + "/static"
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR.as_posix() + "/media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
