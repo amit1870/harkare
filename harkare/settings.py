@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -54,6 +56,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'harkare.urls'
 
+django_heroku.settings(locals())
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -80,10 +84,10 @@ WSGI_APPLICATION = 'harkare.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_siyaram',
-        'USER': 'dbu_amit',
-        'PASSWORD': '4BgMa$Ve939',
-        'HOST': 'localhost',
+        'NAME': 'det2r1ple9vvre',
+        'USER': 'lqgrrhaqdwsynf',
+        'PASSWORD': '699a3693c352a246a6379f3ad3c0803d508e8e011a6adaf06c71bc9154d98781',
+        'HOST': 'ec2-23-20-224-166.compute-1.amazonaws.com',
         'PORT': 5432
     }
 }
