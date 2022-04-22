@@ -129,3 +129,10 @@ def account_logout(request):
     context = {}
     if request.method == 'GET':
         return render(request, 'accounts/login.html', context)
+
+@login_required
+def profile(request):
+    context = {}
+    return render(request, 'accounts/profile.html', context)
+
+

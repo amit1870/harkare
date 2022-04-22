@@ -1,0 +1,28 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title > Harkare | Harkare </title>
+{% endblock %}
+
+{% block css %}{% endblock %}
+{% block js %} {% endblock %}
+
+{% block site_wrapper %}
+
+<div class="container" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img src="{% static 'accounts/img/ramjee.jpg' %}" class="card-img-top" alt="{{request.user.user_name}}">
+              <div class="card-body">
+                <h5 class="card-title">{{request.user.user_name}}</h5>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+{% endblock %}

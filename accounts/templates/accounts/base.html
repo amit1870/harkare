@@ -38,7 +38,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
             <li class="nav-item">
-              <a class="btn btn-outline-success" href="{% url 'accounts:siyaram' %}">Harkare</a>
+              <a class="btn btn-outline-success" href="{% url 'ramjee:harkare' %}">Harkare</a>
             </li>
  
           </ul>
@@ -54,7 +54,7 @@
             &nbsp;
 
             <li class="nav-item">
-              <a class="btn btn-outline-success" href="{% url 'accounts:login' %}">{{ request.user.user_name}}</a>
+              <a class="btn btn-outline-success" href="{% url 'accounts:profile' %}">{{ request.user.user_name}}</a>
               <a class="btn btn-outline-success" href="{% url 'accounts:logout' %}">Logout</a>
             </li>
             &nbsp;

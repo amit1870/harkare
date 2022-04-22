@@ -20,16 +20,21 @@ def upload_harkara(request):
         postdata = request.FILES
         harkara_list = postdata.getlist('harkara[]')
 
-        email = request.user.email
-        manushya = Manushya.objects.filter(email=email).first()
+        if harkara_list:
 
-        for harkara in harkara_list:
-            harkara_obj = Harkare.objects.create(manushya=manushya, name=harkara.name)
-            minio_url = helper.handle_uploaded_file(harkara, rename=harkara_obj.id)
+            email = request.user.email
+            manushya = Manushya.objects.filter(email=email).first()
 
-        url = reverse('ramjee:harkare')
+            for harkara in harkara_list:
+                harkara_obj = Harkare.objects.create(manushya=manushya, name=harkara.name)
+                minio_url = helper.handle_uploaded_file(harkara, rename=harkara_obj.id)
 
-        return HttpResponseRedirect(url)
+            url = reverse('ramjee:harkare')
+
+            return HttpResponseRedirect(url)
+
+        else:
+            context['message'] = 'Please select files.'
 
     context['page_title'] = 'Upload Harkara'
 
