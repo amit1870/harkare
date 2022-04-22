@@ -27,13 +27,7 @@
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Harkare</a>
-            </li>
- 
-          </ul>
+           
 
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -42,17 +36,28 @@
           &nbsp;
 
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          {% if request.user.is_authenticated %}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ request.user.user_name}}
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="{% url 'accounts:siyaram' %}">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a></li>
-              </ul>
+
+            <li class="nav-item">
+              <a class="btn btn-outline-success" href="{% url 'accounts:siyaram' %}">Harkare</a>
             </li>
+ 
+          </ul>
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if request.user.is_authenticated %}
+
+            {% if request.user.is_superuser %}
+              <li class="nav-item">
+                <a class="btn btn-outline-success" href="{% url 'ramjee:upload' %}">Upload</a>
+              </li>
+            {% endif %}
+            &nbsp;
+
+            <li class="nav-item">
+              <a class="btn btn-outline-success" href="{% url 'accounts:login' %}">{{ request.user.user_name}}</a>
+              <a class="btn btn-outline-success" href="{% url 'accounts:logout' %}">Logout</a>
+            </li>
+            &nbsp;
           
           {% else %}
             <li class="nav-item">

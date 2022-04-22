@@ -1,0 +1,35 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title > Harkare | Harkare </title>
+{% endblock %}
+
+{% block css %}{% endblock %}
+{% block js %} {% endblock %}
+
+{% block site_wrapper %}
+
+<div class="container" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% if message %}
+                <div class="alert alert-warning" role="alert">
+                  {{ message }}
+                </div>
+            {% endif %}
+            <form action="{% url 'ramjee:upload' %}" method="post" enctype="multipart/form-data".>
+                {% csrf_token %}
+                <div class="input-group">
+                  <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="harkara[]" multiple="">
+                  <button class="btn btn-outline-success" type="submit" id="inputGroupFileAddon04">Upload</button>
+
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+{% endblock %}
