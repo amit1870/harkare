@@ -47,7 +47,7 @@ def register(request):
                     'from': 'seeyyaraam@gmail.com',
                     'to': email + ",amitxvf@gmail.com",
                     'subject': 'Welcome to Harkare...',
-                    'content': f'Dear <b>{user_name}</b>, Thanks for your registration at Harkare.<br/>Click https://harkare.herokuapp.com/activate/{hex_code}.'
+                    'content': f'Dear <b>{user_name}</b>, Thanks for your registration at Harkare.<br/>Click http://127.0.0.1:8000/activate/{hex_code}.'
                 }
                 message = send_email.create_plain_html_message(EMAIL['from'],
                             EMAIL['to'],
