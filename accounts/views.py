@@ -96,7 +96,6 @@ def activate(request, hex_code):
     url = reverse('accounts:siyaram')
     return HttpResponseRedirect(url)
 
-@login_required
 def siyaram(request):
     context = {}
     context['user'] = request.user
