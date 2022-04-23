@@ -5,8 +5,18 @@
     <title > Harkare | Harkare </title>
 {% endblock %}
 
-{% block css %}{% endblock %}
-{% block js %} {% endblock %}
+{% block css %} {% endblock %}
+{% block js %}
+<script type="text/javascript">
+  $(function(){
+    $("audio").on("play", function() {
+      $("audio").not(this).each(function(index, audio) {
+        audio.pause();
+      });
+    });
+  });
+</script>
+{% endblock %}
 
 {% block site_wrapper %}
 
@@ -29,7 +39,12 @@
                       </button>
                     </h2>
                     <div id="flush-collapse{{forloop.counter}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{forloop.counter}}" data-bs-parent="#accordionFlushExample">
-                      <div class="accordion-body">{{harkara.url}}</div>
+                      <div class="accordion-body">
+                        <audio controls id="harkara{{forloop.counter}}">
+                          <source src="{{harkara.url}}" type="audio/mpeg">
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
                     </div>
                   </div>
                 {% endfor %}

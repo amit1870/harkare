@@ -34,6 +34,8 @@ def upload_harkara(request):
             for harkara in harkara_list:
                 harkara_obj = Harkare.objects.create(manushya=manushya, name=harkara.name)
                 minio_url = helper.handle_uploaded_file(harkara, rename=harkara_obj.id)
+                harkara_obj.url = minio_url
+                harkara_obj.save()
 
             url = reverse('ramjee:harkare')
             return HttpResponseRedirect(url)
