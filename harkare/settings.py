@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'harkare.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'det2r1ple9vvre',
-        'USER': 'lqgrrhaqdwsynf',
-        'PASSWORD': '699a3693c352a246a6379f3ad3c0803d508e8e011a6adaf06c71bc9154d98781',
-        'HOST': 'ec2-23-20-224-166.compute-1.amazonaws.com',
+        'NAME': 'd4i94lu4m4hgr3',
+        'USER': 'hzasivqnpnlctj',
+        'PASSWORD': 'd099ba8af72e1da7785420975103d5d82f46174fe366e525e9f34ac9ff298057',
+        'HOST': 'ec2-54-80-122-11.compute-1.amazonaws.com',
         'PORT': 5432
     }
 }
