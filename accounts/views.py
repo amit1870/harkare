@@ -134,4 +134,9 @@ def profile(request):
     context = {}
     return render(request, 'accounts/profile.html', context)
 
+@login_required
+def search(request):
+    context = {}
+    return render(request, 'accounts/search.html', context)
+
 

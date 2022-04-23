@@ -19,7 +19,7 @@
                   {{ message }}
                 </div>
             {% endif %}
-            <form action="." method="post">
+            <form action="{% url 'accounts:register' %}" method="post">
                 {% csrf_token %}
                 <input type="text" class="form-control" placeholder="Username" name="username" id="username" aria-label="Username" aria-describedby="basic-addon1" Value="Rajkumar">
                 <input type="text" class="form-control" placeholder="Pitaji" name="pitaji" id="pitaji" aria-label="Pitaji" aria-describedby="basic-addon1" Value="Nandlal">

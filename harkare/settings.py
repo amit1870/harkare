@@ -58,7 +58,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'harkare.urls'
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 TEMPLATES = [
     {
