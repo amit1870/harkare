@@ -6,6 +6,12 @@ from django.views.decorators.http import require_http_methods
 from django.contrib.auth import login, authenticate, get_user_model, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from rest_framework import viewsets
+from rest_framework import permissions
+from rest_framework.renderers import TemplateHTMLRenderer
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from accounts.models import Manushya
 from .models import Harkare
 from utils import send_email, helper
@@ -30,7 +36,6 @@ def upload_harkara(request):
                 minio_url = helper.handle_uploaded_file(harkara, rename=harkara_obj.id)
 
             url = reverse('ramjee:harkare')
-
             return HttpResponseRedirect(url)
 
         else:
@@ -43,4 +48,7 @@ def upload_harkara(request):
 @login_required
 def list_harkare(request):
     context = {}
+    queryset = Harkare.objects.all()
+    context['harkare'] = queryset
     return render(request, 'ramjee/harkare.html', context)
+

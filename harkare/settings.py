@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_migration_linter',
     'accounts.apps.AccountsConfig',
     'ramjee.apps.RamjeeConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,11 @@ MINIO = {
     'bucket_name': 'harkare',
     'access_key': 'admin',
     'secret_key': 'password'
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
 
 

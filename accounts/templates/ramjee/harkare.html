@@ -12,16 +12,30 @@
 
 <div class="container" style="padding-top: 100px;">
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
             {% if message %}
                 <div class="alert alert-warning" role="alert">
                   {{ message }}
                 </div>
             {% endif %}
-            Harkares
+
+            <div class="accordion" id="accordionFlushExample">
+                {% for harkara in harkare %}
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-heading{{forloop.counter}}">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{forloop.counter}}" aria-expanded="false" aria-controls="flush-collapse{{forloop.counter}}">
+                        {{harkara.name}}
+                      </button>
+                    </h2>
+                    <div id="flush-collapse{{forloop.counter}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{forloop.counter}}" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">{{harkara.url}}</div>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-3"></div>
     </div>
 </div>
 
