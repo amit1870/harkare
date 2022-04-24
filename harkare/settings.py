@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 import django_heroku
-
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,14 +87,17 @@ WSGI_APPLICATION = 'harkare.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5rfcquvjcebg3',
-        'USER': 'uxjlrdeddyqwpr',
-        'PASSWORD': 'c271867db66cbc5e5926c8ef8d3cc4af3cb5aaa6c08f267cb94df2f98f4637d1',
-        'HOST': 'ec2-3-229-252-6.compute-1.amazonaws.com',
+        'NAME': 'db_siyaram',
+        'USER': 'dbu_amit',
+        'PASSWORD': '4BgMa$Ve939',
+        'HOST': 'localhost',
         'PORT': 5432
 
     }
 }
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
 
 # Password validation
