@@ -28,7 +28,7 @@ SECRET_KEY = '6aj9il2xu2vqwvnitsg@!+4-8t3%zwr@$agm7x%o%yb2t9ivt%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'harkare.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'harkare.herokuapp.com', '0.0.0.0']
 
 
 # Application definition
@@ -87,6 +87,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'siyaram.db',
+        'USER': 'uxjlrdeddyqwpr',
+        'PASSWORD': 'c271867db66cbc5e5926c8ef8d3cc4af3cb5aaa6c08f267cb94df2f98f4637d1',
+        'HOST': 'ec2-3-229-252-6.compute-1.amazonaws.com',
+        'PORT': 5432
+
     }
 }
 
