@@ -85,8 +85,8 @@ WSGI_APPLICATION = 'harkare.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'siyaram.db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5rfcquvjcebg3',
         'USER': 'uxjlrdeddyqwpr',
         'PASSWORD': 'c271867db66cbc5e5926c8ef8d3cc4af3cb5aaa6c08f267cb94df2f98f4637d1',
         'HOST': 'ec2-3-229-252-6.compute-1.amazonaws.com',
