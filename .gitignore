@@ -5,6 +5,8 @@ __pycache__/
 
 # Migrations
 
+# Database
+siyaram.db
 
 # static
 media/*
