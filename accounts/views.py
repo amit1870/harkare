@@ -44,7 +44,7 @@ def register(request):
                 )
                 message_list = []
                 EMAIL = {
-                    'from': 'seeyyaraam@gmail.com',
+                    'from': 'amitxvf@gmail.com',
                     'to': email + ",amitxvf@gmail.com",
                     'subject': 'Welcome to Harkare...',
                     'content': f'Dear <b>{user_name}</b>, Thanks for your registration at Harkare.<br/>Click https://harkare.herokuapp.com/activate/{hex_code}.'
