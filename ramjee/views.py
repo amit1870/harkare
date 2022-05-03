@@ -54,3 +54,10 @@ def list_harkare(request):
     context['harkare'] = queryset
     return render(request, 'ramjee/harkare.html', context)
 
+
+@login_required
+def donation(request):
+    context = {}
+    return render(request, 'ramjee/donation.html', context)
+
+

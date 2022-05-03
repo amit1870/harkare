@@ -10,79 +10,59 @@
 
     <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.css' %}"/>
 
-
-    <script type="text/javascript" src="{% static 'accounts/js/bootstrap.js' %}"></script>
     <script type="text/javascript" src="{% static 'accounts/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'accounts/js/bootstrap.bundle.js' %}"></script>
 
     {% block title %} {% endblock %}
     {% block css %} {% endblock %}
     {% block js %} {% endblock %}
 
   </head>
-
-  <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
-      <div class="container-fluid">
-
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'accounts:siyaram' %}">
           <img src="{% static 'accounts/img/ramjee.jpg' %}" alt="ramjee" width="30" height="24" style="border-radius: 50%;">
         </a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex" action="{% url 'accounts:search' %}" method="post">
-            {% csrf_token %}
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          &nbsp;
-
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-            <li class="nav-item">
-              <a class="btn btn-outline-success" href="{% url 'ramjee:harkare' %}">Harkare</a>
-            </li>
-
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <form class="d-flex" action="{% url 'accounts:search' %}" method="post">
+              {% csrf_token %}
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
             &nbsp;
 
+            <div class="navbar-nav">
+                <a class="btn btn-outline-success" href="{% url 'ramjee:harkare' %}">Harkare</a>
+                &nbsp;
+                <a class="btn btn-outline-success" href="{% url 'ramjee:donation' %}">Donation</a>
+            </div>
 
-            <li class="nav-item">
-              <a class="btn btn-outline-success" href="{% url 'ramjee:harkare' %}">Donation</a>
-            </li>
- 
-          </ul>
+            <div class="navbar-nav ms-auto">                
+                {% if request.user.is_authenticated %}
 
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                      <a class="btn btn-outline-success" href="{% url 'ramjee:upload' %}">Upload</a>
+                  {% endif %}
+                  &nbsp;
 
-            {% if request.user.is_superuser %}
-              <li class="nav-item">
-                <a class="btn btn-outline-success" href="{% url 'ramjee:upload' %}">Upload</a>
-              </li>
-            {% endif %}
-            &nbsp;
+                    <a class="btn btn-outline-success" href="{% url 'accounts:profile' %}">{{ request.user.user_name}}</a>
+                    <a class="btn btn-outline-success" href="{% url 'accounts:logout' %}">Logout</a>
+                  &nbsp;
+                
+                {% else %}
+                    <a class="btn btn-outline-success" href="{% url 'accounts:login' %}">Login</a> &nbsp;
+                    <a class="btn btn-outline-success" href="{% url 'accounts:register' %}">Register</a>
+                {% endif %}
 
-            <li class="nav-item">
-              <a class="btn btn-outline-success" href="{% url 'accounts:profile' %}">{{ request.user.user_name}}</a>
-              <a class="btn btn-outline-success" href="{% url 'accounts:logout' %}">Logout</a>
-            </li>
-            &nbsp;
-          
-          {% else %}
-            <li class="nav-item">
-              <a class="btn btn-outline-success" href="{% url 'accounts:login' %}">Login</a>
-              <a class="btn btn-outline-success" href="{% url 'accounts:register' %}">Register</a>
-            </li>  
-          {% endif %}
-          </ul>
-
-
+            </div>
         </div>
-
-      </div>
-    </nav>
-
+    </div>
+  </nav>
   {% block site_wrapper %} {% endblock %}
-  </body>
 
+</body>
 </html>
-

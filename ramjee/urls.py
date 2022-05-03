@@ -10,6 +10,7 @@ from . import views
 app_name = 'ramjee'
 urlpatterns = [
     path('harkare/upload/', views.upload_harkara, name='upload'),
+    path('harkare/donation/', views.donation, name='donation'),
     path('harkare/', views.list_harkare, name='harkare'),
     # path('', include(router.urls)),
 
