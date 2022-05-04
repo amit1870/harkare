@@ -25,6 +25,21 @@ def register(request):
         viradari = postdata.get('viradari', '')
         password = postdata.get('inputPassword1','')
 
+        if user_name == '':
+            user_name = 'SiyaRam'
+
+        if pitaji == '':
+            pitaji = 'Dasharath'
+
+        if mataji == '':
+            mataji == 'Kaushlya'
+
+        if gaon == '':
+            gaon = 'Harkarapur'
+
+        if viradari == '':
+            viradari = 'SiyaRam'
+
         manushya = get_user_model().objects.filter(email=email).first()
 
         if not manushya:

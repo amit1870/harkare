@@ -12,8 +12,26 @@
 
 <div class="container" style="padding-top: 100px;">
     <div class="row">
-        <img src="{% static 'accounts/img/ramjee.jpg' %}" alt="ramjee" width="60%" height="50%" style="border-radius: 5%;">
-    </div>
+        <div class="col-md-4">
+            <img src="{% static 'accounts/img/ramjee.jpg' %}" alt="ramjee" width="70%" height="100%" style="border-radius: 5%;">
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                    <p class="card-text"> जब सुग्रीव किष्किंधा के राजा बन गये, तो प्रभु रामजी से बोले की अब तो बस मैं आपकी सेवा करूँगा। तो प्रभु राम ने कहा की सेवा करनी हो तो अपने राज्य की सेवा करो, मेरी सेवा होती रहेगी। आप भी प्रभु राम बने और अपना अनुग्रह बनाये रखे। हम आपके बहुत आभारी होंगे।</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">SBI Bank</li>
+                        <li class="list-group-item">Name : Amit Patel</li>
+                        <li class="list-group-item">Account : 34 97  99 638 30</li>
+                        <li class="list-group-item">IFSC : SBIN0011249</li>
+                        <li class="list-group-item">राजा बलि , महाऋषि दधीचि , रामानुजम लक्ष्मण , रामानुजम भरत , राजा दशरथ, दानवीर कर्ण , राजा हरिशचन्द <br> :: दानी {{ request.user.user_name}} </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'accounts/img/ramjee.jpg' %}" alt="ramjee" width="70%" height="100%" style="border-radius: 5%;">
+        </div>
 </div>
 
 {% endblock %}

@@ -100,4 +100,3 @@ def get_minio_url(client, bucket_name, object_name, days=7):
     )
 
     return url
-
