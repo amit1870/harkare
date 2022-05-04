@@ -60,6 +60,6 @@ def donation(request):
     context = {}
     return render(request, 'ramjee/donation.html', context)
 
-def limitations(request):
+def limitation(request):
     context = {}
     return render(request, 'ramjee/limitation.html', context)
