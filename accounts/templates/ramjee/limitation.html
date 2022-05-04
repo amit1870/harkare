@@ -1,0 +1,29 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title > Harkare | Harkare </title>
+{% endblock %}
+
+{% block css %}{% endblock %}
+{% block js %} {% endblock %}
+
+{% block site_wrapper %}
+
+<div class="container" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{% static 'accounts/img/ramjee.jpg' %}" alt="ramjee" width="100%" height="100%" style="border-radius: 5%;">
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-danger" role="alert">
+              Heroku :: Upload of harkare is not working because heroku not allowing file upload.
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'accounts/img/ramjee.jpg' %}" alt="ramjee" width="100%" height="100%" style="border-radius: 5%;">
+        </div>
+</div>
+
+{% endblock %}
