@@ -26,18 +26,30 @@ def is_expired(set_date_time, by_hour=1):
 def handle_uploaded_file(f, rename='siyaram'):
     rename = f"{rename}"
     FILE_PATH = f"{MEDIA_ROOT}/{rename}"
+    url_string = ''
 
-    save_file(f, FILE_PATH)
-    url_string = upload_file_to_minio(FILE_PATH, rename)
-    delete_file(FILE_PATH)
+    saved_response = save_file(f, FILE_PATH)
+    if saved_response:
+        url_string = upload_file_to_minio(FILE_PATH, rename)
+        delete_file(FILE_PATH)
 
     return url_string
 
 
 def save_file(f, file_path):
-    with open(file_path, 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
+    success = True
+    try:    
+        with open(file_path, 'wb+') as destination:
+            for chunk in f.chunks():
+                destination.write(chunk)
+    except FileNotFoundError:
+        print('Heroku Upload Error')
+        success = False
+    except Exception as e:
+        print(e)
+        success = False
+
+    return success
 
 def upload_file_to_minio(file_path, object_name):
 
