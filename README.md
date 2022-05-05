@@ -19,3 +19,6 @@ git push heroku main
 ## Create Super User on Heroku
 heroku run bash
 python manage.py createsuperuser
+
+## Run Localhost as Public Host
+ssh -R 80:localhost:8000 localhost.run
